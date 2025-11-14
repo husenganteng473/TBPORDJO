@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TB. Pordjo - Hebel Termurah se-Purworejo (COD)</title>
+    <!-- Favicon ditambahkan -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Font Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style untuk background hero */
+        .hero-bg {
+            /* Link gambar eksternal yang baru */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/herbel.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Style untuk harga coret */
+        .harga-coret {
+            text-decoration: line-through;
+            text-decoration-color: #ef4444; /* red-500 */
+            text-decoration-thickness: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">
+                <!-- Ikon ditambahkan -->
+                <i class="fas fa-home text-yellow-500"></i>
+                TB.Pordjo
+            </a>
+            <div class="space-x-4">
+                 <button id="openModalKalkulator" class="text-gray-600 hover:text-yellow-500 font-medium">
+                    Kalkulator
+                </button>
+                <a href="#kontak" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
+                    Hubungi Kami
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-bg text-white py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Hebel Termurah se-Purworejo</h1>
+                
+                <!-- Layout Harga Baru (Vertikal) -->
+                <div class="flex flex-col items-center justify-center space-y-2 my-8">
+                    <!-- Harga Coret (di atas, lebih kecil) -->
+                    <span class="text-2xl md:text-3xl font-semibold text-gray-300 harga-coret">
+                        Rp 990.000
+                    </span>
+                    <!-- Harga Promo (di bawah, besar) -->
+                    <span class="text-5xl md:text-7xl font-extrabold text-yellow-400 drop-shadow-md">
+                        Rp 550.000 / m³
+                    </span>
+                </div>
+                
+                <p class="text-xl md:text-2xl mb-8 font-light text-gray-200">Kualitas Terbaik, Bisa Bayar di Tempat (COD)!</p>
+                
+                <!-- Bagian Hitung Mundur -->
+                <div class="mb-8">
+                    <p class="text-lg text-yellow-400 font-semibold mb-2 animate-pulse">Ambil Promo Sekarang!</p>
+                    <div id="countdown" class="flex justify-center space-x-2 md:space-x-4 text-center">
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 w-20">
+                            <span id="days" class="text-3xl font-bold">00</span>
+                            <span class="block text-xs">Hari</span>
+                        </div>
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 w-20">
+                            <span id="hours" class="text-3xl font-bold">00</span>
+                            <span class="block text-xs">Jam</span>
+                        </div>
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 w-20">
+                            <span id="minutes" class="text-3xl font-bold">00</span>
+                            <span class="block text-xs">Menit</span>
+                        </div>
+                        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 w-20">
+                            <span id="seconds" class="text-3xl font-bold">00</span>
+                            <span class="block text-xs">Detik</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button id="openWaModalFromHero" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 w-full sm:w-auto">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                    <button id="openModalKalkulatorFromHero" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 w-full sm:w-auto">
+                        <i class="fas fa-calculator"></i> Kalkulator Hebel
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan -->
+        <section id="keunggulan" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Kenapa Memilih Kami?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-tag text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Harga Promo Terbaik</h3>
+                        <!-- Harga Coret ditambahkan di sini juga -->
+                        <p class="text-gray-600">Hanya <span class="font-bold text-red-500 line-through">Rp 990.000</span> <span class="font-bold text-green-600">Rp 550.000 / m³</span>. Kami jamin termurah di Purworejo.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-hand-holding-dollar text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Bisa Bayar di Tempat (COD)</h3>
+                        <p class="text-gray-600">Barang sampai baru bayar. Belanja aman, hati tenang, tanpa risiko.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-truck-fast text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Pengiriman Cepat</h3>
+                        <p class="text-gray-600">Stok selalu ready. Pesan hari ini, kami usahakan kirim secepatnya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produk Lainnya -->
+        <section id="produk" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Produk Kami Lainnya</h2>
+                <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:flex">
+                    <div class="md:flex-shrink-0">
+                        <img class="h-48 w-full object-cover md:h-full md:w-48" src="assets/images/besi.jpeg" alt="Besi Beton SNI">
+                    </div>
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-yellow-500 font-semibold">Stok Ready</div>
+                        <h3 class="block mt-1 text-2xl leading-tight font-bold text-black">Besi Beton SNI</h3>
+                        <p class="mt-2 text-gray-500">Kami juga menyediakan berbagai ukuran besi beton berkualitas SNI untuk kebutuhan cor dan konstruksi Anda. Harga bersaing!</p>
+                        <a href="besi.html" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
+                            Lihat Detail Besi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak -->
+        <section id="kontak" class="py-16 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Pesan Sekarang!</h2>
+                <p class="text-lg text-gray-300 mb-8">Jangan lewatkan promo! Hubungi kami via WhatsApp untuk respon cepat.</p>
+                <button id="openWaModalFromFooter" class="bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-10 rounded-lg text-xl shadow-lg transition duration-300 animate-pulse">
+                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                </button>
+                <p class="mt-6 text-gray-400">© 2025 TB. Pordjo. Semua hak dilindungi.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Modal Kalkulator Kebutuhan Hebel -->
+    <div id="modalKalkulator" class="fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center p-4 z-50 hidden overflow-y-auto">
+        <!-- Konten Modal -->
+        <!-- Tambahkan overflow-hidden untuk fix sudut lancip -->
+        <div id="modalContent" class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mt-10 relative overflow-hidden">
+            <button id="closeModalKalkulator" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Kalkulator Kebutuhan Hebel</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label for="tebalHebel" class="block text-sm font-medium text-gray-700">1. Tebal Hebel (cm)</label>
+                    <select id="tebalHebel" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                        <option value="7">7 cm</option>
+                        <option value="10">10 cm</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="tinggiDinding" class="block text-sm font-medium text-gray-700">2. Total Tinggi Dinding (meter)</label>
+                    <input type="number" id="tinggiDinding" placeholder="Contoh: 3.5" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label for="panjangDinding" class="block text-sm font-medium text-gray-700">3. Total Panjang Dinding (meter)</label>
+                    <input type="number" id="panjangDinding" placeholder="Contoh: 15" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label for="jumlahPintu" class="block text-sm font-medium text-gray-700">4. Jumlah Pintu</label>
+                    <input type="number" id="jumlahPintu" value="0" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                    <span class="text-xs text-gray-500">Asumsi ukuran pintu 0.9m x 2m (1.8 m²)</span>
+                </div>
+
+                <div>
+                    <label for="jumlahJendela" class="block text-sm font-medium text-gray-700">5. Jumlah Jendela</label>
+                    <input type="number" id="jumlahJendela" value="0" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                    <span class="text-xs text-gray-500">Asumsi ukuran jendela 0.4m x 0.8m (0.32 m²)</span>
+                </div>
+
+                <button id="hitungEstimasi" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
+                    Hitung Estimasi
+                </button>
+            </div>
+
+            <!-- Hasil Estimasi -->
+            <div id="hasilKalkulatorModal" class="mt-6 bg-gray-50 p-6 rounded-lg -mx-8 -mb-8" style="display: none;">
+                <h3 class="text-lg font-bold text-gray-800">Estimasi Kebutuhan Anda:</h3>
+                
+                <p class="text-sm text-gray-600 mt-2">Luas Dinding Bruto: <span id="hasilLuasBruto" class="font-bold">0 m²</span></p>
+                <p class="text-sm text-gray-600">Luas Pengurang (Pintu/Jendela): <span id="hasilLuasPengurang" class="font-bold">0 m²</span></p>
+                <p class="text-sm text-gray-600">Luas Dinding Netto: <span id="hasilLuasNetto" class="font-bold">0 m²</span></p>
+
+                <div class="mt-4 pt-4 border-t">
+                    <p class="text-lg font-medium text-gray-700">Total Kebutuhan Hebel (m³):</p>
+                    <p id="hasilHebel" class="text-3xl font-extrabold text-yellow-600">0 m³</p>
+                </div>
+
+                <div class="mt-2">
+                    <p class="text-lg font-medium text-gray-700">Estimasi Kebutuhan Semen Instan:</p>
+                    <p id="hasilSemen" class="text-2xl font-bold text-gray-800">0 sak</p>
+                </div>
+                
+                <div class="mt-4 pt-4 border-t">
+                     <p class="text-lg font-medium text-gray-700">Estimasi Biaya Hebel:</p>
+                    <p id="hasilBiaya" class="text-3xl font-extrabold text-green-600">Rp 0</p>
+                    <p class="text-xs text-gray-500">*Estimasi biaya belum termasuk ongkir dan semen.</p>
+                </div>
+                
+                <!-- Tombol Pesan dari Kalkulator -->
+                <button id="pesanDariKalkulator" class="w-full mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition duration-300">
+                    <i class="fab fa-whatsapp"></i> Pesan Kebutuhan Ini
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Form WhatsApp -->
+    <div id="waModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center p-4 z-50 hidden overflow-y-auto">
+        <!-- Konten Modal -->
+        <!-- Tambahkan overflow-hidden untuk fix sudut lancip -->
+        <div id="waModalContent" class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mt-10 relative overflow-hidden">
+            <button id="closeWaModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Form Pemesanan WhatsApp</h2>
+            <p class="text-gray-600 mb-4">Mohon isi data di bawah ini agar kami bisa merespon lebih cepat.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label for="waNama" class="block text-sm font-medium text-gray-700">Nama Anda</label>
+                    <input type="text" id="waNama" placeholder="Nama Lengkap" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+                
+                <div>
+                    <label for="waAlamat" class="block text-sm font-medium text-gray-700">Alamat Pengiriman</label>
+                    <input type="text" id="waAlamat" placeholder="Alamat lengkap (Jl, RT/RW, Kel, Kec)" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label for="waKebutuhan" class="block text-sm font-medium text-gray-700">Kebutuhan / Pertanyaan</label>
+                    <textarea id="waKebutuhan" rows="4" placeholder="Contoh: Pesan 10 m³ hebel 7cm, atau tanya stok besi" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                </div>
+
+                <button id="kirimWa" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition duration-300">
+                    <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- PENGATURAN MODAL KALKULATOR ---
+            const modalKalkulator = document.getElementById('modalKalkulator');
+            const openModalKalkulator = document.getElementById('openModalKalkulator');
+            const openModalKalkulatorFromHero = document.getElementById('openModalKalkulatorFromHero');
+            const closeModalKalkulator = document.getElementById('closeModalKalkulator');
+            const hasilKalkulatorModal = document.getElementById('hasilKalkulatorModal');
+            
+            const showKalkulator = () => modalKalkulator.classList.remove('hidden');
+            const hideKalkulator = () => {
+                modalKalkulator.classList.add('hidden');
+                // Sembunyikan hasil saat modal ditutup
+                hasilKalkulatorModal.style.display = 'none';
+            };
+
+            openModalKalkulator.addEventListener('click', showKalkulator);
+            openModalKalkulatorFromHero.addEventListener('click', showKalkulator);
+            closeModalKalkulator.addEventListener('click', hideKalkulator);
+
+            // --- PENGATURAN MODAL WHATSAPP ---
+            const waModal = document.getElementById('waModal');
+            const closeWaModal = document.getElementById('closeWaModal');
+            const openWaModalFromHero = document.getElementById('openWaModalFromHero');
+            const openWaModalFromFooter = document.getElementById('openWaModalFromFooter');
+            const pesanDariKalkulator = document.getElementById('pesanDariKalkulator');
+            const waKebutuhan = document.getElementById('waKebutuhan');
+
+            const showWaModal = () => waModal.classList.remove('hidden');
+            const hideWaModal = () => {
+                 waModal.classList.add('hidden');
+                 // Selalu kosongkan field kebutuhan saat modal ditutup
+                 waKebutuhan.value = '';
+            };
+
+            closeWaModal.addEventListener('click', hideWaModal);
+            openWaModalFromHero.addEventListener('click', showWaModal);
+            openWaModalFromFooter.addEventListener('click', showWaModal);
+            
+            // Logika baru: Buka modal WA dari tombol kalkulator
+            pesanDariKalkulator.addEventListener('click', () => {
+                const tebal = document.getElementById('tebalHebel').value;
+                const hebel = document.getElementById('hasilHebel').textContent;
+                const semen = document.getElementById('hasilSemen').textContent;
+                
+                // Isi otomatis field kebutuhan
+                waKebutuhan.value = `Saya pesan berdasarkan hasil kalkulator:\n- Hebel: ${hebel} (Tebal ${tebal}cm)\n- Semen: ${semen}`;
+                
+                // Tutup modal kalkulator dan buka modal WA
+                hideKalkulator();
+                showWaModal();
+            });
+
+
+            // --- LOGIKA HITUNG ESTIMASI ---
+            const hitungEstimasi = document.getElementById('hitungEstimasi');
+            
+            // Input
+            const tebalHebel = document.getElementById('tebalHebel');
+            const tinggiDinding = document.getElementById('tinggiDinding');
+            const panjangDinding = document.getElementById('panjangDinding');
+            const jumlahPintu = document.getElementById('jumlahPintu');
+            const jumlahJendela = document.getElementById('jumlahJendela');
+            
+            // Output
+            const hasilLuasBruto = document.getElementById('hasilLuasBruto');
+            const hasilLuasPengurang = document.getElementById('hasilLuasPengurang');
+            const hasilLuasNetto = document.getElementById('hasilLuasNetto');
+            const hasilHebel = document.getElementById('hasilHebel');
+            const hasilSemen = document.getElementById('hasilSemen');
+            const hasilBiaya = document.getElementById('hasilBiaya');
+
+            // Harga
+            const HARGA_HEBEL_PER_M3 = 550000;
+            const LUAS_PINTU = 1.8; // 0.9m * 2m
+            const LUAS_JENDELA = 0.32; // 0.4m * 0.8m
+
+            hitungEstimasi.addEventListener('click', () => {
+                const tinggi = parseFloat(tinggiDinding.value) || 0;
+                const panjang = parseFloat(panjangDinding.value) || 0;
+                const pintu = parseInt(jumlahPintu.value) || 0;
+                const jendela = parseInt(jumlahJendela.value) || 0;
+                const tebal = parseFloat(tebalHebel.value); // 7 atau 10
+
+                if (tinggi === 0 || panjang === 0) {
+                    alert("Mohon isi tinggi dan panjang dinding.");
+                    return;
+                }
+
+                // 1. Hitung Luas
+                const luasBruto = tinggi * panjang;
+                const luasPengurang = (pintu * LUAS_PINTU) + (jendela * LUAS_JENDELA);
+                const luasNetto = luasBruto - luasPengurang;
+
+                // 2. Hitung Kebutuhan Hebel (m³)
+                // Volume = Luas Netto * Tebal (dalam meter)
+                const tebalMeter = tebal / 100;
+                const kebutuhanHebel = luasNetto * tebalMeter;
+
+                // 3. Hitung Kebutuhan Semen
+                // Asumsi: 1 sak semen instan = 10-12 m² (tebal 7cm) atau 7-9 m² (tebal 10cm)
+                // Kita ambil rata-rata: 11 m² (7cm) dan 8 m² (10cm)
+                let kebutuhanSemen = 0;
+                if (tebal === 7) {
+                    kebutuhanSemen = luasNetto / 11;
+                } else { // tebal 10cm
+                    kebutuhanSemen = luasNetto / 8;
+                }
+                
+                // 4. Hitung Biaya Hebel
+                const biayaHebel = kebutuhanHebel * HARGA_HEBEL_PER_M3;
+
+                // 5. Tampilkan Hasil
+                hasilLuasBruto.textContent = `${luasBruto.toFixed(2)} m²`;
+                hasilLuasPengurang.textContent = `${luasPengurang.toFixed(2)} m²`;
+                hasilLuasNetto.textContent = `${luasNetto.toFixed(2)} m²`;
+                hasilHebel.textContent = `${kebutuhanHebel.toFixed(2)} m³`;
+                hasilSemen.textContent = `${Math.ceil(kebutuhanSemen)} sak`;
+                hasilBiaya.textContent = `Rp ${biayaHebel.toLocaleString('id-ID')}`;
+                
+                hasilKalkulatorModal.style.display = 'block';
+            });
+
+
+            // --- LOGIKA KIRIM WHATSAPP ---
+            const kirimWa = document.getElementById('kirimWa');
+            const waNama = document.getElementById('waNama');
+            const waAlamat = document.getElementById('waAlamat');
+            // waKebutuhan sudah diambil di atas
+
+            kirimWa.addEventListener('click', () => {
+                const nama = waNama.value.trim();
+                const alamat = waAlamat.value.trim();
+                const kebutuhan = waKebutuhan.value.trim();
+                
+                if (!nama || !alamat || !kebutuhan) {
+                    alert('Mohon isi semua field (Nama, Alamat, dan Kebutuhan) sebelum mengirim.');
+                    return;
+                }
+
+                // Ganti dengan nomor WA Anda (gunakan format 62... tanpa + atau 0)
+                const nomorWA = '6281234567890'; 
+
+                // Format pesan
+                const pesan = `Halo TB. Pordjo, saya mau pesan:\n\n*Nama:* ${nama}\n*Alamat Pengiriman:* ${alamat}\n*Kebutuhan:*\n${kebutuhan}\n\nMohon info ketersediaan dan total biayanya. Terima kasih.`;
+                
+                // Encode pesan untuk URL
+                const encodedPesan = encodeURIComponent(pesan);
+                
+                // Buat link WhatsApp
+                const waURL = `https://wa.me/${nomorWA}?text=${encodedPesan}`;
+                
+                // Buka di tab baru
+                window.open(waURL, '_blank');
+
+                // Tutup modal setelah kirim
+                hideWaModal();
+                
+                // Kosongkan form
+                waNama.value = '';
+                waAlamat.value = '';
+                waKebutuhan.value = '';
+            });
+            
+            
+            // --- DITAMBAHKAN: Logika Hitung Mundur (Countdown) ---
+            // Atur promo berakhir 24 JAM DARI SEKARANG
+            // Tanggal akhir promo (24 jam dari 14 Nov 2025, 15:00)
+            const promoEndDate = new Date('2025-11-15T15:00:00').getTime(); 
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = promoEndDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Tampilkan di HTML
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+                // Jika waktu habis
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown').innerHTML = "<p class='text-xl text-red-500 font-bold'>PROMO TELAH BERAKHIR</p>";
+                }
+            };
+
+            // Update countdown setiap detik
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            // Jalankan pertama kali saat load
+            updateCountdown();
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul diubah -->
+    <title>TB. Pordjo - Jual Besi Beton SNI Purworejo</title>
+    <!-- Favicon (sama) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Font Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style untuk background hero (BESI) */
+        .hero-bg-besi {
+            /* Gambar diganti dengan gambar besi */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://winsteel-beton.com/wp-content/uploads/2022/11/besi-beton-1024x576.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Style untuk harga coret (sama) */
+        .harga-coret {
+            text-decoration: line-through;
+            text-decoration-color: #ef4444; /* red-500 */
+            text-decoration-thickness: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header (Disederhanakan, tanpa tombol Kalkulator) -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">
+                <i class="fas fa-home text-yellow-500"></i>
+                TB.Pordjo
+            </a>
+            <div class="space-x-4">
+                 <!-- Tombol "Kalkulator" dihapus dari halaman ini -->
+                <a href="#kontak" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
+                    Hubungi Kami
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Konten Besi) -->
+    <main>
+        <!-- Class diganti ke .hero-bg-besi -->
+        <section class="hero-bg-besi text-white py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <!-- Judul diganti -->
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Besi Beton SNI Berkualitas</h1>
+                
+                <p class="text-xl md:text-2xl mb-8 font-light text-gray-200">Stok Lengkap Ukuran 6, 8, 10, & 13 mm. Kualitas Terjamin!</p>
+                
+                <!-- Countdown dan harga hebel dihapus -->
+                
+                <!-- Tombol disisakan satu, ditengahkan -->
+                <div class="flex justify-center">
+                    <button id="openWaModalFromHero" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 w-full sm:w-auto">
+                        <i class="fab fa-whatsapp"></i> Cek Harga & Pesan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daftar Harga Besi (BAGIAN BARU) -->
+        <section id="daftar-harga" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Daftar Ukuran & Harga Promo</h2>
+                <p class="text-center text-gray-600 mb-12">*Harga promo per batang (panjang full 12m), harga tidak mengikat.</p>
+                
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Ukuran 6mm -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg text-center border-2 border-yellow-500">
+                        <h3 class="text-2xl font-bold mb-2">Besi 6 mm</h3>
+                        <p class="text-gray-500 text-lg harga-coret">Rp 35.000</p>
+                        <p class="text-green-600 text-3xl font-extrabold">Rp 29.000</p>
+                    </div>
+                    <!-- Ukuran 8mm -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-2xl font-bold mb-2">Besi 8 mm</h3>
+                        <p class="text-gray-500 text-lg harga-coret">Rp 55.000</p>
+                        <p class="text-green-600 text-3xl font-extrabold">Rp 48.000</p>
+                    </div>
+                    <!-- Ukuran 10mm -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-2xl font-bold mb-2">Besi 10 mm</h3>
+                        <p class="text-gray-500 text-lg harga-coret">Rp 85.000</p>
+                        <p class="text-green-600 text-3xl font-extrabold">Rp 77.000</p>
+                    </div>
+                    <!-- Ukuran 13mm -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-2xl font-bold mb-2">Besi 13 mm</h3>
+                        <p class="text-gray-500 text-lg harga-coret">Rp 130.000</p>
+                        <p class="text-green-600 text-3xl font-extrabold">Rp 119.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan (Diubah kontennya) -->
+        <section id="keunggulan" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Kenapa Beli Besi di Sini?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-certificate text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Standar SNI</h3>
+                        <p class="text-gray-600">Kami hanya menjual besi beton full SNI dengan toleransi yang wajar dan kualitas teruji.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-hand-holding-dollar text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Bisa Bayar di Tempat (COD)</h3>
+                        <p class="text-gray-600">Sama seperti hebel, belanja besi juga bisa bayar di tempat. Aman dan terpercaya.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <i class="fas fa-warehouse text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Stok Lengkap</h3>
+                        <p class="text-gray-600">Semua ukuran (polos dan ulir) tersedia. Tidak perlu menunggu lama, stok kami selalu ready.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Produk Lainnya (Hebel) -->
+        <section id="produk-lain" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Cek Juga Produk Hebel Kami</h2>
+                <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl shadow-lg overflow-hidden md:flex">
+                    <div class="md:flex-shrink-0">
+                        <!-- Gambar Hebel -->
+                        <img class="h-48 w-full object-cover md:h-full md:w-48" src="assets\images\herbel.jpeg" alt="Hebel Termurah Purworejo">
+                    </div>
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-yellow-500 font-semibold">Promo Terbatas</div>
+                        <h3 class="block mt-1 text-2xl leading-tight font-bold text-black">Hebel Termurah (COD)</h3>
+                        <p class="mt-2 text-gray-500">Kualitas terbaik, harga promo <span class="font-bold">Rp 550.000 / m³</span>. Gratis hitung kebutuhan dengan kalkulator kami.</p>
+                        <!-- Link ke index.html -->
+                        <a href="index.html" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
+                            Lihat Detail Hebel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Kontak (Sama persis) -->
+        <section id="kontak" class="py-16 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Pesan Sekarang!</h2>
+                <p class="text-lg text-gray-300 mb-8">Hubungi kami via WhatsApp untuk respon cepat ketersediaan stok dan harga terbaru.</p>
+                <button id="openWaModalFromFooter" class="bg-green-500 hover:bg-green-600 text-white font-extrabold py-4 px-10 rounded-lg text-xl shadow-lg transition duration-300 animate-pulse">
+                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                </button>
+                <p class="mt-6 text-gray-400">© 2025 TB. Pordjo. Semua hak dilindungi.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Form WhatsApp (Sama, tapi placeholder diganti) -->
+    <div id="waModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center p-4 z-50 hidden overflow-y-auto">
+        <div id="waModalContent" class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mt-10 relative overflow-hidden">
+            <button id="closeWaModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Form Pemesanan WhatsApp</h2>
+            <p class="text-gray-600 mb-4">Mohon isi data di bawah ini agar kami bisa merespon lebih cepat.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label for="waNama" class="block text-sm font-medium text-gray-700">Nama Anda</label>
+                    <input type="text" id="waNama" placeholder="Nama Lengkap" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+                
+                <div>
+                    <label for="waAlamat" class="block text-sm font-medium text-gray-700">Alamat Pengiriman</Labe></label>
+                    <input type="text" id="waAlamat" placeholder="Alamat lengkap (Jl, RT/RW, Kel, Kec)" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label for="waKebutuhan" class="block text-sm font-medium text-gray-700">Kebutuhan / Pertanyaan</label>
+                    <!-- Placeholder diganti -->
+                    <textarea id="waKebutuhan" rows="4" placeholder="Contoh: Pesan besi 8mm 50 batang, atau tanya stok hebel" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                </div>
+
+                <button id="kirimWa" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition duration-300">
+                    <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SCRIPT (Disederhanakan, hanya untuk Modal WA)
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- PENGATURAN MODAL WHATSAPP ---
+            const waModal = document.getElementById('waModal');
+            const closeWaModal = document.getElementById('closeWaModal');
+            const openWaModalFromHero = document.getElementById('openWaModalFromHero');
+            const openWaModalFromFooter = document.getElementById('openWaModalFromFooter');
+            const waKebutuhan = document.getElementById('waKebutuhan');
+
+            const showWaModal = () => waModal.classList.remove('hidden');
+            const hideWaModal = () => {
+                 waModal.classList.add('hidden');
+                 waKebutuhan.value = ''; // Selalu kosongkan field saat modal ditutup
+            };
+
+            closeWaModal.addEventListener('click', hideWaModal);
+            openWaModalFromHero.addEventListener('click', showWaModal);
+            openWaModalFromFooter.addEventListener('click', showWaModal);
+
+            // --- LOGIKA KIRIM WHATSAPP ---
+            const kirimWa = document.getElementById('kirimWa');
+            const waNama = document.getElementById('waNama');
+            const waAlamat = document.getElementById('waAlamat');
+
+            kirimWa.addEventListener('click', () => {
+                const nama = waNama.value.trim();
+                const alamat = waAlamat.value.trim();
+                const kebutuhan = waKebutuhan.value.trim();
+                
+                if (!nama || !alamat || !kebutuhan) {
+                    alert('Mohon isi semua field (Nama, Alamat, dan Kebutuhan) sebelum mengirim.');
+                    return;
+                }
+
+                // Ganti dengan nomor WA Anda (gunakan format 62... tanpa + atau 0)
+                const nomorWA = '6281234567890'; 
+
+                // Format pesan
+                const pesan = `Halo TB. Pordjo, saya mau pesan:\n\n*Nama:* ${nama}\n*Alamat Pengiriman:* ${alamat}\n*Kebutuhan:*\n${kebutuhan}\n\nMohon info ketersediaan dan total biayanya. Terima kasih.`;
+                
+                const encodedPesan = encodeURIComponent(pesan);
+                const waURL = `https://wa.me/${nomorWA}?text=${encodedPesan}`;
+                
+                window.open(waURL, '_blank');
+                hideWaModal();
+                
+                waNama.value = '';
+                waAlamat.value = '';
+                waKebutuhan.value = '';
+            });
+
+        });
+    </script>
+
+</body>
+</html>
