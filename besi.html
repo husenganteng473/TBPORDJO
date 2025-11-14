@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Judul diubah -->
     <title>TB. Pordjo - Jual Besi Beton SNI Purworejo</title>
-    <!-- Favicon (sama) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/tailwind.output.css">
     
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,22 +20,25 @@
         }
         /* Style untuk background hero (BESI) */
         .hero-bg-besi {
-            /* Gambar diganti dengan gambar besi */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://winsteel-beton.com/wp-content/uploads/2022/11/besi-beton-1024x576.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/besi.jpeg');
             background-size: cover;
             background-position: center;
         }
-        /* Style untuk harga coret (sama) */
+        /* Style untuk harga coret */
         .harga-coret {
             text-decoration: line-through;
             text-decoration-color: #ef4444; /* red-500 */
             text-decoration-thickness: 2px;
         }
+        /* Sembunyikan form input secara default (tetap dipakai di dalam modal) */
+        .form-kalkulator {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Header (Disederhanakan, tanpa tombol Kalkulator) -->
+    <!-- Header (Tombol Kalkulator Besi diubah jadi <button>) -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-gray-800">
@@ -45,36 +46,38 @@
                 TB.Pordjo
             </a>
             <div class="space-x-4">
-                 <!-- Tombol "Kalkulator" dihapus dari halaman ini -->
-                <a href="#kontak" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
+                 <a href="index.html" class="text-gray-600 hover:text-yellow-500 font-medium">Halaman Hebel</a>
+                 <!-- Diubah jadi button untuk buka modal -->
+                 <button id="openKalkulatorModalHeader" class="text-gray-600 hover:text-yellow-500 font-medium">
+                    Kalkulator Besi
+                 </button>
+                 <a href="#kontak" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
                     Hubungi Kami
-                </a>
+                 </a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section (Konten Besi) -->
     <main>
-        <!-- Class diganti ke .hero-bg-besi -->
         <section class="hero-bg-besi text-white py-24 md:py-32">
             <div class="container mx-auto px-6 text-center">
-                <!-- Judul diganti -->
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Besi Beton SNI Berkualitas</h1>
-                
                 <p class="text-xl md:text-2xl mb-8 font-light text-gray-200">Stok Lengkap Ukuran 6, 8, 10, & 13 mm. Kualitas Terjamin!</p>
                 
-                <!-- Countdown dan harga hebel dihapus -->
-                
-                <!-- Tombol disisakan satu, ditengahkan -->
-                <div class="flex justify-center">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                     <button id="openWaModalFromHero" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 w-full sm:w-auto">
                         <i class="fab fa-whatsapp"></i> Cek Harga & Pesan
+                    </button>
+                    <!-- Diubah jadi button untuk buka modal -->
+                    <button id="openKalkulatorModalHero" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 w-full sm:w-auto">
+                        <i class="fas fa-calculator"></i> Hitung Kebutuhan Besi
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Daftar Harga Besi (BAGIAN BARU) -->
+        <!-- Daftar Harga Besi -->
         <section id="daftar-harga" class="py-16 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Daftar Ukuran & Harga Promo</h2>
@@ -109,7 +112,7 @@
             </div>
         </section>
 
-        <!-- Keunggulan (Diubah kontennya) -->
+        <!-- Keunggulan -->
         <section id="keunggulan" class="py-16 bg-gray-100">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Kenapa Beli Besi di Sini?</h2>
@@ -133,20 +136,21 @@
             </div>
         </section>
         
+        <!-- BAGIAN KALKULATOR (IN-PAGE) DIHAPUS -->
+        <!-- <section id="kalkulator-besi" ... > ... </section> -->
+        
         <!-- Produk Lainnya (Hebel) -->
         <section id="produk-lain" class="py-16 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Cek Juga Produk Hebel Kami</h2>
                 <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl shadow-lg overflow-hidden md:flex">
                     <div class="md:flex-shrink-0">
-                        <!-- Gambar Hebel -->
-                        <img class="h-48 w-full object-cover md:h-full md:w-48" src="assets\images\herbel.jpeg" alt="Hebel Termurah Purworejo">
+                        <img class="h-48 w-full object-cover md:h-full md:w-48" src="assets/images/herbel.jpeg" alt="Hebel Termurah Purworejo">
                     </div>
                     <div class="p-8">
                         <div class="uppercase tracking-wide text-sm text-yellow-500 font-semibold">Promo Terbatas</div>
                         <h3 class="block mt-1 text-2xl leading-tight font-bold text-black">Hebel Termurah (COD)</h3>
                         <p class="mt-2 text-gray-500">Kualitas terbaik, harga promo <span class="font-bold">Rp 550.000 / m³</span>. Gratis hitung kebutuhan dengan kalkulator kami.</p>
-                        <!-- Link ke index.html -->
                         <a href="index.html" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-300">
                             Lihat Detail Hebel
                         </a>
@@ -156,7 +160,7 @@
         </section>
 
 
-        <!-- Kontak (Sama persis) -->
+        <!-- Kontak -->
         <section id="kontak" class="py-16 bg-gray-800 text-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold mb-4">Pesan Sekarang!</h2>
@@ -169,7 +173,7 @@
         </section>
     </main>
 
-    <!-- Modal Form WhatsApp (Sama, tapi placeholder diganti) -->
+    <!-- Modal Form WhatsApp -->
     <div id="waModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center p-4 z-50 hidden overflow-y-auto">
         <div id="waModalContent" class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mt-10 relative overflow-hidden">
             <button id="closeWaModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
@@ -183,13 +187,12 @@
                 </div>
                 
                 <div>
-                    <label for="waAlamat" class="block text-sm font-medium text-gray-700">Alamat Pengiriman</Labe></label>
+                    <label for="waAlamat" class="block text-sm font-medium text-gray-700">Alamat Pengiriman / Proyek</label>
                     <input type="text" id="waAlamat" placeholder="Alamat lengkap (Jl, RT/RW, Kel, Kec)" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
                 </div>
 
                 <div>
                     <label for="waKebutuhan" class="block text-sm font-medium text-gray-700">Kebutuhan / Pertanyaan</label>
-                    <!-- Placeholder diganti -->
                     <textarea id="waKebutuhan" rows="4" placeholder="Contoh: Pesan besi 8mm 50 batang, atau tanya stok hebel" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
                 </div>
 
@@ -199,9 +202,170 @@
             </div>
         </div>
     </div>
+    
+    <!-- MODAL BARU: Kalkulator Besi Canggih -->
+    <div id="modalKalkulatorBesi" class="fixed inset-0 bg-black bg-opacity-70 flex items-start justify-center p-4 z-50 hidden overflow-y-auto">
+        <!-- Konten Modal -->
+        <!-- Dibuat lebih lebar (max-w-4xl) -->
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-4xl mt-10 relative overflow-hidden">
+            <button id="closeKalkulatorBesi" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            
+            <!-- Isi Kalkulator (dipindah dari section) -->
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <i class="fas fa-calculator text-5xl text-yellow-500 mb-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Estimasi Kebutuhan Besi</h2>
+                    <p class="text-lg text-gray-700">Hitung estimasi kasar kebutuhan besi utama dan sengkang untuk proyek Anda.</p>
+                </div>
+                
+                <!-- Form Input Kalkulator -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-inner">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Kolom Pilihan -->
+                        <div class="space-y-4">
+                            <div>
+                                <label for="pilihTipe" class="block text-sm font-medium text-gray-700">1. Pilih Tipe Perhitungan</label>
+                                <select id="pilihTipe" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                                    <option value="">-- Pilih Tipe --</option>
+                                    <option value="dak">Dak (Lantai Cor)</option>
+                                    <option value="sloof">Sloof / Balok</option>
+                                    <option value="kolom">Kolom</option>
+                                </select>
+                            </div>
+
+                            <!-- Input Nama (untuk label) -->
+                            <div>
+                                <label for="namaItem" class="block text-sm font-medium text-gray-700">2. Beri Nama Item</label>
+                                <input type="text" id="namaItem" placeholder="Contoh: Dak Teras, Sloof Lt 2" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                        </div>
+                        
+                        <!-- Kolom Input Dinamis -->
+                        <div class="space-y-4">
+                            <!-- Form DAK -->
+                            <div id="form-dak" class="form-kalkulator space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Panjang Area Dak (meter)</label>
+                                    <input type="number" id="dakPanjang" placeholder="Contoh: 6" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Lebar Area Dak (meter)</label>
+                                    <input type="number" id="dakLebar" placeholder="Contoh: 4" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ukuran Besi Utama (mm)</label>
+                                    <input type="number" id="dakBesiUtama" value="10" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jarak Besi Utama (cm)</label>
+                                    <input type="number" id="dakJarakUtama" value="15" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                            </div>
+                            
+                            <!-- Form SLOOF / BALOK -->
+                            <div id="form-sloof" class="form-kalkulator space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Total Panjang Sloof/Balok (meter)</label>
+                                    <input type="number" id="sloofPanjang" placeholder="Contoh: 30" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jumlah Besi Utama (pcs)</label>
+                                    <input type="number" id="sloofJmlUtama" value="4" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ukuran Besi Utama (mm)</label>
+                                    <input type="number" id="sloofUkuranUtama" value="10" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ukuran Besi Sengkang (mm)</label>
+                                    <input type="number" id="sloofUkuranSengkang" value="8" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jarak Sengkang (cm)</label>
+                                    <input type="number" id="sloofJarakSengkang" value="15" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                            </div>
+                            
+                            <!-- Form KOLOM -->
+                            <div id="form-kolom" class="form-kalkulator space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jumlah Titik Kolom</label>
+                                    <input type="number" id="kolomJumlah" placeholder="Contoh: 6" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                 <div>
+                                    <label class="block text-sm font-medium text-gray-700">Tinggi Kolom per Titik (meter)</label>
+                                    <input type="number" id="kolomTinggi" placeholder="Contoh: 3.5" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jumlah Besi Utama (pcs)</label>
+                                    <input type="number" id="kolomJmlUtama" value="4" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ukuran Besi Utama (mm)</label>
+                                    <input type="number" id="kolomUkuranUtama" value="10" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Ukuran Besi Sengkang (mm)</label>
+                                    <input type="number" id="kolomUkuranSengkang" value="8" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Jarak Sengkang (cm)</label>
+                                    <input type="number" id="kolomJarakSengkang" value="15" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tombol Tambah -->
+                    <div class="mt-6 border-t pt-6">
+                        <button id="tambahKebutuhan" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
+                            <i class="fas fa-plus"></i> Tambah ke Daftar Kebutuhan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hasil Estimasi Total (di dalam modal) -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Hasil Estimasi Total Kebutuhan Anda</h3>
+                    
+                    <!-- Peringatan -->
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6" role="alert">
+                        <p class="font-bold">Penting!</p>
+                        <p>Ini adalah **estimasi kasar** (asumsi overlap 40cm, panjang batang 12m). Mohon diskusikan ulang hasil ini dengan mandor/kontraktor Anda sebelum memesan.</p>
+                    </div>
+                    
+                    <!-- Daftar Hasil Ditambahkan -->
+                    <div id="daftarHasil" class="space-y-4 mb-6">
+                        <!-- Hasil akan ditambahkan di sini oleh JavaScript -->
+                        <p id="placeholderHasil" class="text-center text-gray-500">Belum ada item yang dihitung. Silakan isi form di atas dan klik "Tambah".</p>
+                    </div>
+                    
+                    <!-- Total Keseluruhan -->
+                    <div class="border-t-2 border-yellow-500 pt-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Rekap Total Besi (Semua Item):</h4>
+                        <div id="rekapTotal" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Rekap akan diisi oleh JavaScript -->
+                            <p class="text-center text-gray-600">Besi 6mm: <span id="total-6" class="font-bold text-xl block">0</span> btg</p>
+                            <p class="text-center text-gray-600">Besi 8mm: <span id="total-8" class="font-bold text-xl block">0</span> btg</p>
+                            <p class="text-center text-gray-600">Besi 10mm: <span id="total-10" class="font-bold text-xl block">0</span> btg</p>
+                            <p class="text-center text-gray-600">Besi 13mm: <span id="total-13" class="font-bold text-xl block">0</span> btg</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tombol Pesan Total -->
+                    <div class="mt-8">
+                        <button id="pesanTotalKebutuhan" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition duration-300 text-lg hidden">
+                            <i class="fab fa-whatsapp"></i> Pesan Total Kebutuhan Ini
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
 
     <script>
-        // SCRIPT (Disederhanakan, hanya untuk Modal WA)
         document.addEventListener('DOMContentLoaded', () => {
 
             // --- PENGATURAN MODAL WHATSAPP ---
@@ -210,6 +374,7 @@
             const openWaModalFromHero = document.getElementById('openWaModalFromHero');
             const openWaModalFromFooter = document.getElementById('openWaModalFromFooter');
             const waKebutuhan = document.getElementById('waKebutuhan');
+            const pesanTotalKebutuhanBtn = document.getElementById('pesanTotalKebutuhan');
 
             const showWaModal = () => waModal.classList.remove('hidden');
             const hideWaModal = () => {
@@ -220,8 +385,8 @@
             closeWaModal.addEventListener('click', hideWaModal);
             openWaModalFromHero.addEventListener('click', showWaModal);
             openWaModalFromFooter.addEventListener('click', showWaModal);
-
-            // --- LOGIKA KIRIM WHATSAPP ---
+            
+            // --- LOGIKA KIRIM WHATSAPP (UTAMA) ---
             const kirimWa = document.getElementById('kirimWa');
             const waNama = document.getElementById('waNama');
             const waAlamat = document.getElementById('waAlamat');
@@ -236,12 +401,9 @@
                     return;
                 }
 
-                // Ganti dengan nomor WA Anda (gunakan format 62... tanpa + atau 0)
+                // GANTI DENGAN NOMOR WA ANDA
                 const nomorWA = '6281234567890'; 
-
-                // Format pesan
-                const pesan = `Halo TB. Pordjo, saya mau pesan:\n\n*Nama:* ${nama}\n*Alamat Pengiriman:* ${alamat}\n*Kebutuhan:*\n${kebutuhan}\n\nMohon info ketersediaan dan total biayanya. Terima kasih.`;
-                
+                const pesan = `Halo TB. Pordjo, saya mau pesan:\n\n*Nama:* ${nama}\n*Alamat:* ${alamat}\n*Kebutuhan:*\n${kebutuhan}\n\nMohon info ketersediaan dan total biayanya. Terima kasih.`;
                 const encodedPesan = encodeURIComponent(pesan);
                 const waURL = `https://wa.me/${nomorWA}?text=${encodedPesan}`;
                 
@@ -251,6 +413,256 @@
                 waNama.value = '';
                 waAlamat.value = '';
                 waKebutuhan.value = '';
+            });
+            
+            
+            // --- LOGIKA MODAL KALKULATOR BESI CANGGIH ---
+            const modalKalkulatorBesi = document.getElementById('modalKalkulatorBesi');
+            const openKalkulatorModalHeader = document.getElementById('openKalkulatorModalHeader');
+            const openKalkulatorModalHero = document.getElementById('openKalkulatorModalHero');
+            const closeKalkulatorBesi = document.getElementById('closeKalkulatorBesi');
+
+            const showKalkulatorBesi = () => modalKalkulatorBesi.classList.remove('hidden');
+            const hideKalkulatorBesi = () => modalKalkulatorBesi.classList.add('hidden');
+            
+            openKalkulatorModalHeader.addEventListener('click', showKalkulatorBesi);
+            openKalkulatorModalHero.addEventListener('click', showKalkulatorBesi);
+            closeKalkulatorBesi.addEventListener('click', hideKalkulatorBesi);
+
+            
+            // --- LOGIKA KALKULATOR BESI CANGGIH (di dalam modal) ---
+            
+            // Variabel-variabel ini sekarang merujuk ke elemen DI DALAM MODAL
+            const pilihTipe = document.getElementById('pilihTipe');
+            const formDak = document.getElementById('form-dak');
+            const formSloof = document.getElementById('form-sloof');
+            const formKolom = document.getElementById('form-kolom');
+            const tambahKebutuhanBtn = document.getElementById('tambahKebutuhan');
+            const daftarHasilDiv = document.getElementById('daftarHasil');
+            let placeholderHasil = document.getElementById('placeholderHasil'); // 'let' karena akan dihapus
+            const rekapTotalDiv = document.getElementById('rekapTotal');
+            
+            // Data Kebutuhan Total (disimpan di memori)
+            let totalKebutuhan = {}; // { '6': 10, '8': 5, '10': 20 }
+            let daftarItem = []; // Menyimpan teks untuk pesan WA
+
+            // Tampilkan form yang sesuai
+            pilihTipe.addEventListener('change', () => {
+                formDak.style.display = 'none';
+                formSloof.style.display = 'none';
+                formKolom.style.display = 'none';
+                
+                const tipe = pilihTipe.value;
+                if (tipe === 'dak') {
+                    formDak.style.display = 'block';
+                } else if (tipe === 'sloof') {
+                    formSloof.style.display = 'block';
+                } else if (tipe === 'kolom') {
+                    formKolom.style.display = 'block';
+                }
+            });
+
+            // Tombol "Tambah ke Kebutuhan"
+            tambahKebutuhanBtn.addEventListener('click', () => {
+                const tipe = pilihTipe.value;
+                const namaItem = document.getElementById('namaItem').value || "Item Tanpa Nama";
+                
+                if (!tipe) {
+                    alert('Silakan pilih tipe perhitungan dulu.');
+                    return;
+                }
+                
+                let hasil = null;
+                if (tipe === 'dak') {
+                    hasil = hitungDak();
+                } else if (tipe === 'sloof') {
+                    hasil = hitungSloof();
+                } else if (tipe === 'kolom') {
+                    hasil = hitungKolom();
+                }
+                
+                if (hasil) {
+                    tampilkanHasilItem(namaItem, tipe, hasil.deskripsi);
+                    tambahKeTotal(hasil.kebutuhan);
+                    updateRekapTotal();
+                }
+            });
+
+            // --- FUNGSI HITUNG ---
+            const PANJANG_BATANG_M = 12;
+            const OVERLAP_CM = 40; // Asumsi overlap 40cm
+            
+            function hitungDak() {
+                const p = parseFloat(document.getElementById('dakPanjang').value) || 0;
+                const l = parseFloat(document.getElementById('dakLebar').value) || 0;
+                const ukuran = document.getElementById('dakBesiUtama').value; // '10'
+                const jarakCm = parseFloat(document.getElementById('dakJarakUtama').value) || 0;
+                
+                if (!p || !l || !jarakCm) {
+                    alert('Isi semua data Dak (Panjang, Lebar, Jarak Besi).');
+                    return null;
+                }
+                
+                const jarakM = jarakCm / 100;
+                
+                // Hitung 2 arah (panjang dan lebar)
+                const jmlArahPanjang = Math.ceil(l / jarakM) + 1;
+                const jmlArahLebar = Math.ceil(p / jarakM) + 1;
+                
+                const totalPanjangM = (jmlArahPanjang * p) + (jmlArahLebar * l);
+                const totalBatang = Math.ceil(totalPanjangM / PANJANG_BATANG_M);
+                
+                let kebutuhan = {};
+                kebutuhan[ukuran] = totalBatang; // { '10': 30 }
+                
+                return {
+                    deskripsi: `Dak ${p}m x ${l}m. Besi ${ukuran}mm: ${totalBatang} btg`,
+                    kebutuhan: kebutuhan
+                };
+            }
+            
+            function hitungSloof() {
+                const p = parseFloat(document.getElementById('sloofPanjang').value) || 0;
+                const jmlUtama = parseInt(document.getElementById('sloofJmlUtama').value) || 0;
+                const ukuranUtama = document.getElementById('sloofUkuranUtama').value; // '10'
+                const ukuranSengkang = document.getElementById('sloofUkuranSengkang').value; // '8'
+                const jarakSengkang = parseFloat(document.getElementById('sloofJarakSengkang').value) || 0;
+                
+                if (!p || !jmlUtama || !jarakSengkang) {
+                    alert('Isi semua data Sloof/Balok.');
+                    return null;
+                }
+
+                // 1. Hitung Besi Utama
+                const totalPanjangUtamaM = p * jmlUtama;
+                const batangUtama = Math.ceil(totalPanjangUtamaM / PANJANG_BATANG_M);
+                
+                // 2. Hitung Besi Sengkang (Asumsi 15x20, jadi keliling sengkang 70cm)
+                // Ini estimasi SANGAT KASAR
+                const kelilingSengkangCm = (15 + 20) * 2; // 70cm
+                const panjangSatuSengkangM = (kelilingSengkangCm + 10) / 100; // 0.8m
+                const jmlSengkang = Math.ceil((p * 100) / jarakSengkang) + 1;
+                const totalPanjangSengkangM = jmlSengkang * panjangSatuSengkangM;
+                const batangSengkang = Math.ceil(totalPanjangSengkangM / PANJANG_BATANG_M);
+                
+                let kebutuhan = {};
+                kebutuhan[ukuranUtama] = (kebutuhan[ukuranUtama] || 0) + batangUtama;
+                kebutuhan[ukuranSengkang] = (kebutuhan[ukuranSengkang] || 0) + batangSengkang;
+                
+                return {
+                    deskripsi: `Sloof ${p}m. Utama (Besi ${ukuranUtama}mm): ${batangUtama} btg. Sengkang (Besi ${ukuranSengkang}mm): ${batangSengkang} btg.`,
+                    kebutuhan: kebutuhan
+                };
+            }
+            
+            function hitungKolom() {
+                const jml = parseInt(document.getElementById('kolomJumlah').value) || 0;
+                const t = parseFloat(document.getElementById('kolomTinggi').value) || 0;
+                const jmlUtama = parseInt(document.getElementById('kolomJmlUtama').value) || 0;
+                const ukuranUtama = document.getElementById('kolomUkuranUtama').value; // '10'
+                const ukuranSengkang = document.getElementById('kolomUkuranSengkang').value; // '8'
+                const jarakSengkang = parseFloat(document.getElementById('kolomJarakSengkang').value) || 0;
+
+                if (!jml || !t || !jmlUtama || !jarakSengkang) {
+                    alert('Isi semua data Kolom.');
+                    return null;
+                }
+                
+                // 1. Hitung Besi Utama
+                // Asumsi overlap/sambungan 40cm per 3m (standar)
+                // Jadi tinggi 3.5m dihitung 4m
+                const tinggiEfektifM = (t + 0.5) * jml; // Total panjang efektif
+                const totalPanjangUtamaM = tinggiEfektifM * jmlUtama;
+                const batangUtama = Math.ceil(totalPanjangUtamaM / PANJANG_BATANG_M);
+                
+                // 2. Hitung Besi Sengkang (Asumsi 15x15, keliling 60cm)
+                const kelilingSengkangCm = (15 + 15) * 2; // 60cm
+                const panjangSatuSengkangM = (kelilingSengkangCm + 10) / 100; // 0.7m
+                const jmlSengkangPerKolom = Math.ceil((t * 100) / jarakSengkang) + 1;
+                const totalJmlSengkang = jmlSengkangPerKolom * jml;
+                const totalPanjangSengkangM = totalJmlSengkang * panjangSatuSengkangM;
+                const batangSengkang = Math.ceil(totalPanjangSengkangM / PANJANG_BATANG_M);
+                
+                let kebutuhan = {};
+                kebutuhan[ukuranUtama] = (kebutuhan[ukuranUtama] || 0) + batangUtama;
+                kebutuhan[ukuranSengkang] = (kebutuhan[ukuranSengkang] || 0) + batangSengkang;
+                
+                return {
+                    deskripsi: `${jml} Kolom @${t}m. Utama (Besi ${ukuranUtama}mm): ${batangUtama} btg. Sengkang (Besi ${ukuranSengkang}mm): ${batangSengkang} btg.`,
+                    kebutuhan: kebutuhan
+                };
+            }
+            
+            // --- FUNGSI UPDATE UI ---
+            
+            function tampilkanHasilItem(nama, tipe, deskripsi) {
+                if (placeholderHasil) {
+                    placeholderHasil.style.display = 'none';
+                    placeholderHasil = null; // Hapus placeholder selamanya
+                }
+                
+                const div = document.createElement('div');
+                div.className = 'bg-gray-100 p-4 rounded-lg border'; // Dibuat bg-gray-100 agar beda
+                div.innerHTML = `
+                    <p class="font-bold text-gray-800">${nama} <span class="text-sm font-normal text-yellow-600">(${tipe})</span></p>
+                    <p class="text-gray-600 text-sm">${deskripsi}</p>
+                `;
+                daftarHasilDiv.appendChild(div);
+                
+                // Simpan untuk pesan WA
+                daftarItem.push(`- ${nama} (${tipe}): ${deskripsi}`);
+            }
+            
+            function tambahKeTotal(kebutuhanItem) {
+                // kebutuhanItem = { '10': 30, '8': 5 }
+                for (const ukuran in kebutuhanItem) {
+                    if (kebutuhanItem.hasOwnProperty(ukuran)) {
+                        const jumlah = kebutuhanItem[ukuran];
+                        totalKebutuhan[ukuran] = (totalKebutuhan[ukuran] || 0) + jumlah;
+                    }
+                }
+            }
+            
+            function updateRekapTotal() {
+                // Ukuran yang didukung
+                const sizes = ['6', '8', '10', '13']; 
+                
+                sizes.forEach(size => {
+                    const el = document.getElementById(`total-${size}`);
+                    if (el) {
+                        el.textContent = totalKebutuhan[size] || 0;
+                    }
+                });
+                
+                pesanTotalKebutuhanBtn.classList.remove('hidden');
+            }
+            
+            // Tombol Pesan Total
+            pesanTotalKebutuhanBtn.addEventListener('click', () => {
+                let pesanWA = "Halo TB. Pordjo, saya mau pesan berdasarkan hasil estimasi kalkulator:\n\n";
+                pesanWA += "*HASIL PER ITEM:*\n";
+                pesanWA += daftarItem.join('\n');
+                pesanWA += "\n\n*REKAP TOTAL KEBUTUHAN:*\n";
+                
+                let rekapAda = false;
+                for (const ukuran in totalKebutuhan) {
+                    if (totalKebutuhan[ukuran] > 0) {
+                        pesanWA += `- Besi ${ukuran}mm: ${totalKebutuhan[ukuran]} Batang\n`;
+                        rekapAda = true;
+                    }
+                }
+                
+                if (!rekapAda) {
+                    pesanWA += "Tidak ada item.\n";
+                }
+                
+                pesanWA += "\nMohon info total harga dan ketersediaannya.";
+                
+                waKebutuhan.value = pesanWA;
+                
+                // Tutup modal kalkulator, buka modal WA
+                hideKalkulatorBesi();
+                showWaModal();
             });
 
         });
